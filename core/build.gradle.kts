@@ -23,18 +23,6 @@ publishing {
       afterEvaluate {
         from(components["java"])
       }
-
-      pom {
-        name.set("Sergey")
-        description.set("A library for configure and managment feature configs")
-
-        developers {
-          developer {
-            id.set("@sla")
-            name.set("Lanovoy Sergey")
-          }
-        }
-      }
     }
   }
 
