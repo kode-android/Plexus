@@ -3,8 +3,9 @@ import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper
 
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 plugins {
-  kotlin("jvm") version "1.7.20" apply false
-  alias(libs.plugins.dokka) apply false
+  alias(libs.plugins.jetbrains.kotlin.jvm) apply false
+  alias(libs.plugins.dokka) apply true
+  `maven-publish`
 }
 
 allprojects {
@@ -61,22 +62,19 @@ subprojects {
           val versionName: String by project
           url = if (versionName.endsWith("SNAPSHOT")) snapshotsRepoUrl else releasesRepoUrl
           credentials {
-            username = project.findProperty("NEXUS_USERNAME")?.toString()
-            password = project.findProperty("NEXUS_PASSWORD")?.toString()
+            username = project.findProperty("mavenCentralUsername")?.toString()
+            password = project.findProperty("mavenCentralPassword")?.toString()
           }
         }
       }
 
-
-      publications.withType<MavenPublication> {
+      publications.create<MavenPublication>("maven") {
         val versionName: String by project
         val pomGroupId: String by project
         groupId = pomGroupId
         version = versionName
 
-        afterEvaluate {
-          from(components["java"])
-        }
+        from(components["java"])
 
         pom {
           val pomDescription: String by project
