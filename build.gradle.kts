@@ -3,8 +3,8 @@ import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper
 
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 plugins {
+  kotlin("jvm") version "1.7.20" apply false
   alias(libs.plugins.dokka) apply false
-  alias(libs.plugins.jetbrains.kotlin.jvm) apply false
 }
 
 allprojects {
