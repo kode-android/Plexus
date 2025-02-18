@@ -1,12 +1,10 @@
 plugins {
-  alias(libs.plugins.jetbrains.kotlin.jvm)
   `maven-publish`
+  kotlin("jvm")
 }
 
 kotlin {
-  jvmToolchain {
-    languageVersion = JavaLanguageVersion.of(11)
-  }
+
 }
 
 dependencies {
