@@ -1,5 +1,6 @@
 [versions]
 coroutines = "1.7.3"
+dokka = "1.5.31"
 jetbrainsKotlinJvm = "1.9.0"
 
 [libraries]
@@ -7,3 +8,4 @@ kotlin-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-co
 
 [plugins]
 jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
+dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
